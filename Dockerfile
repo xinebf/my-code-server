@@ -26,6 +26,8 @@ RUN apt-get -y install sudo -y \
 
 # Create a non-root user
 RUN useradd -m vscodeuser
+RUN echo "vscodeuser	ALL=(ALL:ALL) ALL" >> /etc/sudoers
+RUN echo "vscodeuser	ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Switch to the non-root user
 USER vscodeuser
